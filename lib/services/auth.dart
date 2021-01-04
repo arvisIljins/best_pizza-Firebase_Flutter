@@ -7,7 +7,7 @@ class AuthService {
   // sign in with email & password
   Future signInAnon() async {
     try {
-      UserCredential result = await _auth.signInAnonymously();
+      AuthResult result = await _auth.signInAnonymously();
       FirebaseUser user = result.user;
       return user;
     } catch (e) {
@@ -19,5 +19,3 @@ class AuthService {
 
   // sign out
 }
-
-mixin AuthResult {}
