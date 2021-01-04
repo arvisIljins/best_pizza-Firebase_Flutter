@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "661792472418",
+    "project_id": "perfect-pizza-4e256",
+    "storage_bucket": "perfect-pizza-4e256.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:661792472418:android:f688b304bfa0e18257403b",
+        "android_client_info": {
+          "package_name": "com.example.firbase_example"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "661792472418-sbpd85ireamvd1ghe2sg8pm7t26skcqf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhAEVweemForR8ixu6EAukpDBgGvYGjQg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "661792472418-sbpd85ireamvd1ghe2sg8pm7t26skcqf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
