@@ -15,7 +15,7 @@ class AuthService {
     return _auth.onAuthStateChanged.map(_userFirebaseUser);
   }
 
-  // sign in with email & password
+  //Sign in anonymos
   Future signInAnon() async {
     try {
       AuthResult result = await _auth.signInAnonymously();
@@ -26,7 +26,21 @@ class AuthService {
       return null;
     }
   }
+
+  // sign in with email & password
+
   // register with email & password
+  Future registerWithEmailAndPassword(String emaill, String password) async {
+    try {
+      AuthResult result = await _auth.createUserWithEmailAndPassword(
+          email: emaill, password: password);
+      FirebaseUser user = result.user;
+      return _userFirebaseUser(user);
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
 
   // sign out
   Future signOut() async {
