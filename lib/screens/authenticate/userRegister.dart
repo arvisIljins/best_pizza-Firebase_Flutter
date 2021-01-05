@@ -1,4 +1,5 @@
 import 'package:firbase_example/services/auth.dart';
+import 'package:firbase_example/shared/constants.dart';
 import 'package:flutter/material.dart';
 
 class UserRegister extends StatefulWidget {
@@ -53,24 +54,8 @@ class _UserRegisterState extends State<UserRegister> {
                 TextFormField(
                   validator: (val) => val.isEmpty ? 'Enter an email' : null,
                   cursorColor: Colors.blueGrey[400],
-                  decoration: InputDecoration(
-                    labelText: 'Your email',
-                    labelStyle: TextStyle(
-                      color: Colors.blueGrey[400],
-                    ),
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.blueGrey[400]),
-                    ),
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.blueGrey[400],
-                        width: 2,
-                      ),
-                    ),
-                    border: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.blueGrey[400]),
-                    ),
-                  ),
+                  decoration:
+                      textInputDecorations.copyWith(labelText: 'Your email'),
                   onChanged: (val) {
                     setState(() => email = val);
                   },
@@ -83,24 +68,8 @@ class _UserRegisterState extends State<UserRegister> {
                       ? 'Password needs to be at least 6 characters long'
                       : null,
                   cursorColor: Colors.blueGrey[400],
-                  decoration: InputDecoration(
-                    labelText: 'Your password',
-                    labelStyle: TextStyle(
-                      color: Colors.blueGrey[400],
-                    ),
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.blueGrey[400]),
-                    ),
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.blueGrey[400],
-                        width: 2,
-                      ),
-                    ),
-                    border: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.blueGrey[400]),
-                    ),
-                  ),
+                  decoration:
+                      textInputDecorations.copyWith(labelText: 'Your password'),
                   obscureText: true,
                   onChanged: (val) {
                     setState(() => password = val);
