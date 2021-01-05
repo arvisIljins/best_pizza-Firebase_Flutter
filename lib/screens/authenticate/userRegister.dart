@@ -11,6 +11,7 @@ class UserRegister extends StatefulWidget {
 
 class _UserRegisterState extends State<UserRegister> {
   final AuthService _auth = AuthService();
+  final _formKey = GlobalKey<FormState>();
 
   //text field states
   String email = '';
@@ -43,12 +44,14 @@ class _UserRegisterState extends State<UserRegister> {
       body: Container(
           padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
           child: Form(
+            key: _formKey,
             child: Column(
               children: [
                 SizedBox(
                   height: 20,
                 ),
                 TextFormField(
+                  validator: (val) => val.isEmpty ? 'Enter an email' : null,
                   cursorColor: Colors.blueGrey[400],
                   decoration: InputDecoration(
                     labelText: 'Your email',
@@ -76,6 +79,9 @@ class _UserRegisterState extends State<UserRegister> {
                   height: 20,
                 ),
                 TextFormField(
+                  validator: (val) => val.length <= 6
+                      ? 'Password needs to be at least 6 characters long'
+                      : null,
                   cursorColor: Colors.blueGrey[400],
                   decoration: InputDecoration(
                     labelText: 'Your password',
@@ -110,8 +116,9 @@ class _UserRegisterState extends State<UserRegister> {
                         color: Colors.blueGrey[100],
                       )),
                   onPressed: () async {
-                    print('email: ${email}');
-                    print('password: ${password}');
+                    if (_formKey.currentState.validate()) {
+                      print('email: ${email}');
+                    }
                   },
                 ),
               ],
