@@ -2,6 +2,9 @@ import 'package:firbase_example/services/auth.dart';
 import 'package:flutter/material.dart';
 
 class UserRegister extends StatefulWidget {
+  final Function toggleShowSignIn;
+  UserRegister(this.toggleShowSignIn);
+
   @override
   _UserRegisterState createState() => _UserRegisterState();
 }
@@ -23,6 +26,19 @@ class _UserRegisterState extends State<UserRegister> {
             style: TextStyle(
               color: Colors.blueGrey[100],
             )),
+        actions: [
+          FlatButton(
+            onPressed: () {
+              widget.toggleShowSignIn();
+            },
+            child: Text(
+              'Sign In',
+              style: TextStyle(
+                color: Colors.blueGrey[100],
+              ),
+            ),
+          ),
+        ],
       ),
       body: Container(
           padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),

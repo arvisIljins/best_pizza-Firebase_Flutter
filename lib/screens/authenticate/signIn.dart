@@ -3,6 +3,9 @@ import 'package:firbase_example/services/auth.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {
+  final Function toggleShowSignIn;
+  SignIn(this.toggleShowSignIn);
+
   @override
   _SignInState createState() => _SignInState();
 }
@@ -20,10 +23,23 @@ class _SignInState extends State<SignIn> {
       backgroundColor: Colors.blueGrey[100],
       appBar: AppBar(
         backgroundColor: Colors.blueGrey[400],
-        title: Text('Signi in - Best Pizza',
+        title: Text('Sign in - Best Pizza',
             style: TextStyle(
               color: Colors.blueGrey[100],
             )),
+        actions: [
+          FlatButton(
+            onPressed: () {
+              widget.toggleShowSignIn();
+            },
+            child: Text(
+              'Sign Up',
+              style: TextStyle(
+                color: Colors.blueGrey[100],
+              ),
+            ),
+          ),
+        ],
       ),
       body: Container(
           padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
