@@ -20,7 +20,7 @@ class _SignInState extends State<SignIn> {
       backgroundColor: Colors.blueGrey[100],
       appBar: AppBar(
         backgroundColor: Colors.blueGrey[400],
-        title: Text('Best Pizza',
+        title: Text('Signi in - Best Pizza',
             style: TextStyle(
               color: Colors.blueGrey[100],
             )),
