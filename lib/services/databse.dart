@@ -9,11 +9,12 @@ class DatabaseService {
   final CollectionReference pizzaCollection =
       Firestore.instance.collection('pizza');
 
-  Future updateUserData(
-      String pizzaType, String name, int size, bool extraCheese) async {
+  Future updateUserData(String pizzaType, String name, String address, int size,
+      bool extraCheese) async {
     return await pizzaCollection.document(uid).setData({
       'pizzaType': pizzaType,
       'name': name,
+      'address': address,
       'size': size,
       'extraCheese': extraCheese,
     });
@@ -25,6 +26,7 @@ class DatabaseService {
       return Pizza(
         pizzaType: doc.data['pizzaType'] ?? '',
         name: doc.data['name'] ?? '',
+        address: doc.data['address'] ?? '',
         size: doc.data['size'] ?? '',
         extraCheese: doc.data['extraCheese'] ?? false,
       );

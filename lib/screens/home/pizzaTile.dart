@@ -101,6 +101,7 @@ class PizzaTile extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
                           children: [
@@ -132,7 +133,7 @@ class PizzaTile extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              pizza.name,
+                              pizza.address,
                               style: TextStyle(
                                   color: Colors.blueGrey[200],
                                   fontSize: 15,
