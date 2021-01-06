@@ -1,6 +1,5 @@
 import 'package:firbase_example/modals/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'databse.dart';
 
 class AuthService {

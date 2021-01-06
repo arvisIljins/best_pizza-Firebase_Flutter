@@ -15,4 +15,9 @@ class DatabaseService {
       'extraCheese': extraCheese,
     });
   }
+
+//get pizza streem
+  Stream<QuerySnapshot> get pizza {
+    return pizzaCollection.snapshots();
+  }
 }
