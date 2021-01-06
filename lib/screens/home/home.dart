@@ -1,5 +1,6 @@
 import 'package:firbase_example/modals/pizza.dart';
 import 'package:firbase_example/screens/home/pizzaList.dart';
+import 'package:firbase_example/screens/home/settingsForm.dart';
 import 'package:firbase_example/services/auth.dart';
 import 'package:firbase_example/services/databse.dart';
 import 'package:flutter/cupertino.dart';
@@ -15,8 +16,9 @@ class Home extends StatelessWidget {
           context: context,
           builder: (context) {
             return Container(
+              color: Colors.blueGrey[100],
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-              child: Text('Bottom sheet'),
+              child: SettingsForm(),
             );
           });
     }
