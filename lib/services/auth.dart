@@ -1,6 +1,8 @@
 import 'package:firbase_example/modals/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import 'databse.dart';
+
 class AuthService {
   // sign in anon
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -46,6 +48,10 @@ class AuthService {
       AuthResult result = await _auth.createUserWithEmailAndPassword(
           email: emaill, password: password);
       FirebaseUser user = result.user;
+
+//create a new document for the user with id
+      await DatabaseService(uid: user.uid).updateUserData('Arvis', 25, true);
+
       return _userFirebaseUser(user);
     } catch (e) {
       print(e.toString());
