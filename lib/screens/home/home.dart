@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firbase_example/modals/pizza.dart';
 import 'package:firbase_example/screens/home/pizzaList.dart';
 import 'package:firbase_example/services/auth.dart';
 import 'package:firbase_example/services/databse.dart';
@@ -9,7 +9,7 @@ class Home extends StatelessWidget {
   final AuthService _auth = AuthService();
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<QuerySnapshot>.value(
+    return StreamProvider<List<Pizza>>.value(
       value: DatabaseService().pizza,
       child: Scaffold(
         backgroundColor: Colors.blueGrey[100],

@@ -1,5 +1,5 @@
+import 'package:firbase_example/modals/pizza.dart';
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:provider/provider.dart';
 
 class PizzaList extends StatefulWidget {
@@ -10,10 +10,12 @@ class PizzaList extends StatefulWidget {
 class _PizzaListState extends State<PizzaList> {
   @override
   Widget build(BuildContext context) {
-    final pizza = Provider.of<QuerySnapshot>(context);
-    for (var doc in pizza.documents) {
-      print(doc.data);
-    }
+    final pizza = Provider.of<List<Pizza>>(context);
+    pizza.forEach((pizza) {
+      print(pizza.name);
+      print(pizza.size);
+      print(pizza.extraCheese);
+    });
 
     return Container();
   }
