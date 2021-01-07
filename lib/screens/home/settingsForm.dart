@@ -30,15 +30,16 @@ class _SettingsFormState extends State<SettingsForm> {
     return Form(
       key: _formKey,
       child: Container(
-        height: 800,
         child: ListView(
           children: [
             Text(
               'Update your pizza choice.',
+              textAlign: TextAlign.center,
               style: TextStyle(
-                  color: Colors.blueGrey[400],
-                  fontSize: 18,
-                  fontWeight: FontWeight.w900),
+                color: Colors.blueGrey[400],
+                fontSize: 18,
+                fontWeight: FontWeight.w900,
+              ),
             ),
             SizedBox(
               height: 20,
@@ -81,8 +82,17 @@ class _SettingsFormState extends State<SettingsForm> {
                 setState(() => _currentPizzaType = val);
               },
             ),
+            SizedBox(
+              height: 10,
+            ),
+            Text('Pizza size?',
+                style: TextStyle(
+                    color: Colors.blueGrey[400],
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400)),
             Slider(
               activeColor: Colors.blueGrey[400],
+              inactiveColor: Colors.blueGrey[200],
               value: (_currentSize ?? 25).toDouble(),
               min: 15,
               max: 25,
@@ -123,6 +133,7 @@ class _SettingsFormState extends State<SettingsForm> {
                 print(_currentName);
                 print(extraCheese);
                 print(_currentPizzaType);
+                print(_currentSize);
               },
             ),
           ],
