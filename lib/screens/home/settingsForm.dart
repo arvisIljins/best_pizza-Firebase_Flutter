@@ -41,7 +41,6 @@ class _SettingsFormState extends State<SettingsForm> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             UserData userData = snapshot.data;
-
             return Form(
               key: _formKey,
               child: Container(

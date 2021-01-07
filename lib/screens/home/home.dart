@@ -66,7 +66,11 @@ class Home extends StatelessWidget {
             ),
           ],
         ),
-        body: PizzaList(),
+        body: Container(
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage('assets/bilde1.jpg'), fit: BoxFit.cover)),
+            child: PizzaList()),
       ),
     );
   }

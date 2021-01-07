@@ -18,11 +18,14 @@ class _PizzaListState extends State<PizzaList> {
       print(pizza.extraCheese);
     });*/
 
-    return ListView.builder(
-      itemCount: pizza.length,
-      itemBuilder: (context, index) {
-        return PizzaTile(pizza: pizza[index]);
-      },
+    return Container(
+      color: Colors.blueGrey[100].withOpacity(0.5),
+      child: ListView.builder(
+        itemCount: pizza.length,
+        itemBuilder: (context, index) {
+          return PizzaTile(pizza: pizza[index]);
+        },
+      ),
     );
   }
 }
