@@ -27,7 +27,11 @@ class _SettingsFormState extends State<SettingsForm> {
   String _currentAddress;
   String _currentPizzaType;
   int _currentSize = 15;
-  bool extraCheese = false;
+  bool _currentExtraCheese = false;
+
+  CurrentExtraCheeseNow() {
+    return _currentExtraCheese ? 'Yes' : 'No';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +41,7 @@ class _SettingsFormState extends State<SettingsForm> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             UserData userData = snapshot.data;
+
             return Form(
               key: _formKey,
               child: Container(
@@ -80,7 +85,7 @@ class _SettingsFormState extends State<SettingsForm> {
                       height: 10,
                     ),
                     DropdownButtonFormField(
-                      value: _currentPizzaType ?? userData.pizzaType,
+                      value: userData.pizzaType ?? _currentPizzaType,
                       decoration: textInputDecorations,
                       items: pizzaTypes.map((pizzaType) {
                         return DropdownMenuItem(
@@ -100,7 +105,7 @@ class _SettingsFormState extends State<SettingsForm> {
                     SizedBox(
                       height: 10,
                     ),
-                    Text('Pizza size?',
+                    Text('Pizza size? (${_currentSize} cm)',
                         style: TextStyle(
                             color: Colors.blueGrey[400],
                             fontSize: 14,
@@ -120,19 +125,19 @@ class _SettingsFormState extends State<SettingsForm> {
                     Row(
                       children: [
                         Text(
-                          'Do you wanna extra cheese?',
+                          'Do you wanna extra cheese? (${CurrentExtraCheeseNow()})',
                           style: TextStyle(
                               color: Colors.blueGrey[400],
                               fontSize: 14,
                               fontWeight: FontWeight.w400),
                         ),
                         Checkbox(
-                            value: extraCheese,
+                            value: _currentExtraCheese,
                             checkColor: Colors.blueGrey[100],
                             activeColor: Colors.blueGrey[400],
                             onChanged: (bool value) {
                               setState(() {
-                                extraCheese = value;
+                                _currentExtraCheese = value;
                               });
                             }),
                       ],
@@ -144,11 +149,16 @@ class _SettingsFormState extends State<SettingsForm> {
                             color: Colors.blueGrey[100],
                           )),
                       onPressed: () async {
-                        print(_currentAddress);
-                        print(_currentName);
-                        print(extraCheese);
-                        print(_currentPizzaType);
-                        print(_currentSize);
+                        if (_formKey.currentState.validate()) {
+                          await DatabaseService(uid: user.uid).updateUserData(
+                              _currentPizzaType ?? userData.pizzaType,
+                              _currentName ?? userData.name,
+                              _currentAddress ?? userData.address,
+                              _currentSize ?? userData.size,
+                              _currentExtraCheese ?? userData.extraCheese);
+
+                          Navigator.pop(context);
+                        }
                       },
                     ),
                   ],

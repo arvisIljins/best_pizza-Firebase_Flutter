@@ -21,15 +21,12 @@ class PizzaTile extends StatelessWidget {
                   CircleAvatar(
                     radius: pizza.size.toDouble(),
                     backgroundColor: Colors.blueGrey[100],
-                    child: Padding(
-                      padding: const EdgeInsets.all(2.0),
-                      child: Text(
-                        '${pizza.size.toString()} cm',
-                        style: TextStyle(
-                            color: Colors.blueGrey[400],
-                            fontSize: 12,
-                            fontWeight: FontWeight.w900),
-                      ),
+                    child: Text(
+                      '${pizza.size.toString()} cm',
+                      style: TextStyle(
+                          color: Colors.blueGrey[400],
+                          fontSize: 10,
+                          fontWeight: FontWeight.w900),
                     ),
                   ),
                   Padding(

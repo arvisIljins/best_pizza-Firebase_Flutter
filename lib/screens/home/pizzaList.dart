@@ -11,7 +11,7 @@ class PizzaList extends StatefulWidget {
 class _PizzaListState extends State<PizzaList> {
   @override
   Widget build(BuildContext context) {
-    final pizza = Provider.of<List<Pizza>>(context);
+    final pizza = Provider.of<List<Pizza>>(context) ?? [];
     /* pizza.forEach((pizza) {
       print(pizza.name);
       print(pizza.size);
